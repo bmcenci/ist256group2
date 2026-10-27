@@ -1,0 +1,42 @@
+[
+  {
+    "id": "CC-1001",
+    "description": "Campus Connect Club T-Shirt",
+    "category": "Merchandise",
+    "unit": "Each",
+    "price": 15.0,
+    "info": "Sizes S-XL"
+  },
+  {
+    "id": "CC-1002",
+    "description": "Annual Membership Pass",
+    "category": "Membership",
+    "unit": "Per Year",
+    "price": 25.0,
+    "info": "Includes event discounts"
+  },
+  {
+    "id": "CC-1003",
+    "description": "Resume Workshop Ticket",
+    "category": "Event",
+    "unit": "Per Person",
+    "price": 5.0,
+    "info": "90 minutes"
+  },
+  {
+    "id": "CC-1004",
+    "description": "Study Guide Bundle",
+    "category": "Digital Resource",
+    "unit": "Download",
+    "price": 10.0,
+    "info": "PDF, 40 pages"
+  },
+  {
+    "id": "CC-1005",
+    "description": "Club Sticker Pack",
+    "category": "Merchandise",
+    "unit": "Pack of 5",
+    "price": 4.5,
+    "info": ""
+  }
+]

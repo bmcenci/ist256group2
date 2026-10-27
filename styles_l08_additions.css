@@ -1,0 +1,39 @@
+/* Shopping cart and product table improvements */
+#shoppingCart {
+    border: none;
+    border-radius: 12px;
+}
+
+#shoppingCart .card-body {
+    padding: 1.5rem;
+}
+
+#productTableBody td,
+#cartTableBody td {
+    vertical-align: middle;
+}
+
+#searchBox,
+#categoryFilter {
+    min-width: 0;
+}
+
+.json-display {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    overflow-x: auto;
+    max-height: 400px;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 576px) {
+    #shoppingCart .card-body {
+        padding: 1rem;
+    }
+
+    #shoppingCart .btn {
+        white-space: normal;
+    }
+}
