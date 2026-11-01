@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Campus Connect | Member Signup</title>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+         rel="stylesheet">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+   <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Campus Connect</a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMenu">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+         <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link active" href="signup.html">Member Signup</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</nav>
+
+<main class="container my-5">
+
+   <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+         <div class="card shadow">
+            <div class="card-body p-4">
+
+               <h1 class="mb-2">Student Club Signup</h1>
+
+               <p class="text-muted">
+                  Enter your information below to join Campus Connect.
+               </p>
+
+               <div id="message"></div>
+
+               <form id="memberForm" novalidate>
+
+                  <div class="mb-3">
+                     <label for="fullName" class="form-label">
+                        Full Name *
+                     </label>
+
+                     <input type="text"
+                            class="form-control"
+                            id="fullName"
+                            required>
+
+                     <div class="invalid-feedback">
+                        Please enter your full name.
+                     </div>
+                  </div>
+
+                  <div class="mb-3">
+                     <label for="email" class="form-label">
+                        Email Address *
+                     </label>
+
+                     <input type="email"
+                            class="form-control"
+                            id="email"
+                            required>
+
+                     <div class="invalid-feedback">
+                        Please enter a valid email address.
+                     </div>
+                  </div>
+
+                  <div class="mb-3">
+                     <label for="phone" class="form-label">
+                        Phone Number
+                     </label>
+
+                     <input type="tel"
+                            class="form-control"
+                            id="phone"
+                            placeholder="555-555-5555">
+                  </div>
+
+                  <div class="mb-3">
+                     <label for="age" class="form-label">
+                        Age *
+                     </label>
+
+                     <input type="number"
+                            class="form-control"
+                            id="age"
+                            min="16"
+                            max="100"
+                            required>
+
+                     <div class="invalid-feedback">
+                        Please enter a valid age.
+                     </div>
+                  </div>
+
+                  <div class="mb-3">
+                     <label for="affiliation" class="form-label">
+                        School / Affiliation *
+                     </label>
+
+                     <input type="text"
+                            class="form-control"
+                            id="affiliation"
+                            required>
+
+                     <div class="invalid-feedback">
+                        Please enter your school or affiliation.
+                     </div>
+                  </div>
+
+                  <button type="submit"
+                          class="btn btn-primary"
+                          id="submitButton">
+                     Add Member
+                  </button>
+
+                  <button type="button"
+                          class="btn btn-secondary d-none"
+                          id="cancelButton">
+                     Cancel Edit
+                  </button>
+
+               </form>
+
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+   <section class="mt-5">
+      <h2>Current Members</h2>
+
+      <div class="table-responsive">
+         <table class="table table-striped table-hover mt-3">
+            <thead class="table-dark">
+               <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Age</th>
+                  <th>Affiliation</th>
+                  <th>Actions</th>
+               </tr>
+            </thead>
+
+            <tbody id="memberTableBody">
+            </tbody>
+         </table>
+      </div>
+
+      <h3 class="h5 mt-5">Stored JSON Data</h3>
+      <pre id="jsonDisplay" class="json-display"></pre>
+   </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
