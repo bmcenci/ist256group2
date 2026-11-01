@@ -1,7 +1,6 @@
 const STORAGE_KEY = "clubProducts";
 const CART_STORAGE_KEY = "clubShoppingCart";
 
-// Replace this URL when your group's REST API is developed.
 const API_URL = "/api/products";
 
 let products = [];
