@@ -1,1 +1,55 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect | Event Registration</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Campus Connect</a>
+
+        <div class="navbar-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="signup.html">Member Signup</a>
+            <a class="nav-link" href="products.html">Club Store</a>
+            <a class="nav-link" href="shopping-cart.html">Shopping Cart</a>
+            <a class="nav-link active" href="finalization.html">
+                Event Registration
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5">
+    <h1 class="mb-3">Club Event Registration</h1>
+    <p class="text-muted">
+        Register for an upcoming Campus Connect event and confirm
+        your participation preferences.
+    </p>
+
+    <div id="registrationApp"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- React libraries -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<!-- Allows JSX to run in the browser -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel" src="finalization.js"></script>
+
+</body>
+</html>
+
