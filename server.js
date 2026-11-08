@@ -126,6 +126,57 @@ app.post("/api/billing", function(req, res) {
     });
 });
 
+// Receive return requests
+app.post("/api/returns", function(req, res) {
+
+    const request = req.body;
+
+    if (
+        !request.name ||
+        !request.productId ||
+        !request.reason ||
+        !request.condition
+    ) {
+        return res.status(400).json({
+            message: "Missing return information."
+        });
+    }
+
+    const filePath = path.join(__dirname, "returns.json");
+
+    let returns = [];
+
+    if (fs.existsSync(filePath)) {
+        try {
+            returns = JSON.parse(
+                fs.readFileSync(filePath, "utf8")
+            );
+        } catch (error) {
+            return res.status(500).json({
+                message: "Unable to read returns data."
+            });
+        }
+    }
+
+    returns.push(request);
+
+    try {
+        fs.writeFileSync(
+            filePath,
+            JSON.stringify(returns, null, 2)
+        );
+    } catch (error) {
+        return res.status(500).json({
+            message: "Unable to save return."
+        });
+    }
+
+    res.status(201).json({
+        message: "Return saved successfully.",
+        returnRequest: request
+    });
+});
+
 // Start the server
 app.listen(PORT, function() {
     console.log(`Campus Connect running at http://localhost:${PORT}`);
