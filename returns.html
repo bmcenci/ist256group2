@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="returnsApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect | Returns</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body ng-controller="ReturnsController">
+
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Campus Connect</a>
+        <a class="btn btn-light" href="products.html">Back to Store</a>
+    </div>
+</nav>
+
+<div class="container my-5">
+
+    <h1>Product Returns</h1>
+    <p>Choose a product and fill out the form to request a return.</p>
+
+    <div class="row g-4">
+
+        <div class="col-md-7">
+            <div class="card p-4 shadow-sm">
+
+                <h3>Return Information</h3>
+
+                <form ng-submit="submitReturn()" novalidate>
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control"
+                               ng-model="returnData.name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Search Products</label>
+                        <input type="text" class="form-control"
+                               id="searchProduct"
+                               placeholder="Search for a product">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Select Product</label>
+                        <select class="form-select"
+                                ng-model="returnData.productId"
+                                ng-options="p.id as p.description for p in products"
+                                ng-change="updateProduct()" required>
+                            <option value="">Choose a product</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Reason for Return</label>
+                        <select class="form-select"
+                                ng-model="returnData.reason" required>
+                            <option value="">Choose a reason</option>
+                            <option>Damaged</option>
+                            <option>Wrong Item</option>
+                            <option>Not Needed</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Product Condition</label>
+                        <select class="form-select"
+                                ng-model="returnData.condition" required>
+                            <option value="">Choose a condition</option>
+                            <option>New</option>
+                            <option>Opened</option>
+                            <option>Damaged</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Additional Details</label>
+                        <textarea class="form-control"
+                                  ng-model="returnData.details"
+                                  rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Submit Return
+                    </button>
+                </form>
+
+                <div class="alert mt-3" ng-if="message"
+                     ng-class="'alert-' + messageType">
+                    {{message}}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card p-4 shadow-sm">
+
+                <h3>Selected Product</h3>
+
+                <p ng-if="!selectedProduct">
+                    No product selected.
+                </p>
+
+                <div ng-if="selectedProduct">
+                    <p><strong>Name:</strong> {{selectedProduct.description}}</p>
+                    <p><strong>Price:</strong> ${{selectedProduct.price.toFixed(2)}}</p>
+                    <p><strong>Category:</strong> {{selectedProduct.category}}</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+<script src="returns.js"></script>
+
+</body>
+</html>
