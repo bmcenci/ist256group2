@@ -177,6 +177,149 @@ app.post("/api/returns", function(req, res) {
     });
 });
 
+// File for community posts
+const submissionsFile = path.join(__dirname, "submissions.json");
+
+// Get all submissions
+app.get("/api/submissions", function(req, res) {
+
+    let submissions = [];
+
+    if (fs.existsSync(submissionsFile)) {
+        try {
+            submissions = JSON.parse(
+                fs.readFileSync(submissionsFile, "utf8")
+            );
+        } catch (error) {
+            return res.status(500).json({
+                message: "Could not read submissions."
+            });
+        }
+    }
+
+    res.json(submissions);
+});
+
+// Submit a new community post
+app.post("/api/submissions", function(req, res) {
+
+    const post = req.body;
+
+    if (
+        typeof post.name !== "string" ||
+        typeof post.title !== "string" ||
+        typeof post.category !== "string" ||
+        typeof post.content !== "string" ||
+        !post.name.trim() ||
+        !post.title.trim() ||
+        !post.category.trim() ||
+        !post.content.trim()
+    ) {
+        return res.status(400).json({
+            message: "Please complete all required fields."
+        });
+    }
+
+    let submissions = [];
+
+    if (fs.existsSync(submissionsFile)) {
+        try {
+            submissions = JSON.parse(
+                fs.readFileSync(submissionsFile, "utf8")
+            );
+        } catch (error) {
+            return res.status(500).json({
+                message: "Could not read submissions."
+            });
+        }
+    }
+
+    const newPost = {
+        id: Date.now(),
+        name: post.name.trim(),
+        title: post.title.trim(),
+        category: post.category.trim(),
+        content: post.content.trim(),
+        status: "Pending"
+    };
+
+    submissions.push(newPost);
+
+    try {
+        fs.writeFileSync(
+            submissionsFile,
+            JSON.stringify(submissions, null, 2)
+        );
+    } catch (error) {
+        return res.status(500).json({
+            message: "Could not save submission."
+        });
+    }
+
+    res.status(201).json({
+        message: "Post submitted successfully.",
+        submission: newPost
+    });
+});
+
+// Approve or reject a post
+app.put("/api/submissions/:id", function(req, res) {
+
+    const status = req.body.status;
+
+    if (status !== "Approved" && status !== "Rejected") {
+        return res.status(400).json({
+            message: "Invalid status."
+        });
+    }
+
+    if (!fs.existsSync(submissionsFile)) {
+        return res.status(404).json({
+            message: "Post not found."
+        });
+    }
+
+    let submissions = [];
+
+    try {
+        submissions = JSON.parse(
+            fs.readFileSync(submissionsFile, "utf8")
+        );
+    } catch (error) {
+        return res.status(500).json({
+            message: "Could not read submissions."
+        });
+    }
+
+    const post = submissions.find(function(item) {
+        return String(item.id) === req.params.id;
+    });
+
+    if (!post) {
+        return res.status(404).json({
+            message: "Post not found."
+        });
+    }
+
+    post.status = status;
+
+    try {
+        fs.writeFileSync(
+            submissionsFile,
+            JSON.stringify(submissions, null, 2)
+        );
+    } catch (error) {
+        return res.status(500).json({
+            message: "Could not update submission."
+        });
+    }
+
+    res.json({
+        message: "Post updated successfully.",
+        submission: post
+    });
+});
+
 // Start the server
 app.listen(PORT, function() {
     console.log(`Campus Connect running at http://localhost:${PORT}`);
