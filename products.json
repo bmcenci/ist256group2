@@ -6,6 +6,7 @@
     "unit": "Each",
     "price": 15.0,
     "info": "Sizes S-XL"
+    "image": "images/club-tshirt.png"
   },
   {
     "id": "CC-1002",
@@ -14,6 +15,7 @@
     "unit": "Per Year",
     "price": 25.0,
     "info": "Includes event discounts"
+    "image": "images/membership-pass.png"
   },
   {
     "id": "CC-1003",
@@ -22,6 +24,7 @@
     "unit": "Per Person",
     "price": 5.0,
     "info": "90 minutes"
+    "image": "images/workshop-ticket.png"
   },
   {
     "id": "CC-1004",
@@ -30,6 +33,7 @@
     "unit": "Download",
     "price": 10.0,
     "info": "PDF, 40 pages"
+    "image": "images/study-guide.png"
   },
   {
     "id": "CC-1005",
@@ -38,5 +42,6 @@
     "unit": "Pack of 5",
     "price": 4.5,
     "info": ""
+    "image": "images/sticker-pack.png"
   }
 ]
