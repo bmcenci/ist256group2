@@ -109,6 +109,12 @@
                 </p>
 
                 <div ng-if="selectedProduct">
+                    <img ng-if="selectedProduct.image"
+                         ng-src="{{selectedProduct.image}}"
+                         ng-attr-alt="{{selectedProduct.description}}"
+                         class="img-fluid rounded mb-3"
+                         style="max-height: 180px; object-fit: contain;">
+                
                     <p><strong>Name:</strong> {{selectedProduct.description}}</p>
                     <p><strong>Price:</strong> ${{selectedProduct.price.toFixed(2)}}</p>
                     <p><strong>Category:</strong> {{selectedProduct.category}}</p>
