@@ -5,7 +5,7 @@
     "category": "Merchandise",
     "unit": "Each",
     "price": 15.0,
-    "info": "Sizes S-XL"
+    "info": "Sizes S-XL",
     "image": "images/club-tshirt.png"
   },
   {
@@ -14,7 +14,7 @@
     "category": "Membership",
     "unit": "Per Year",
     "price": 25.0,
-    "info": "Includes event discounts"
+    "info": "Includes event discounts",
     "image": "images/membership-pass.png"
   },
   {
@@ -23,7 +23,7 @@
     "category": "Event",
     "unit": "Per Person",
     "price": 5.0,
-    "info": "90 minutes"
+    "info": "90 minutes",
     "image": "images/workshop-ticket.png"
   },
   {
@@ -32,7 +32,7 @@
     "category": "Digital Resource",
     "unit": "Download",
     "price": 10.0,
-    "info": "PDF, 40 pages"
+    "info": "PDF, 40 pages",
     "image": "images/study-guide.png"
   },
   {
@@ -41,7 +41,7 @@
     "category": "Merchandise",
     "unit": "Pack of 5",
     "price": 4.5,
-    "info": ""
+    "info": "",
     "image": "images/sticker-pack.png"
   }
 ]
